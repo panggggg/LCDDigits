@@ -13,4 +13,7 @@
 
 class LCDDigits:
     def create_LCD(self, number):
-        pass
+        first_line = "._.\n"
+        second_line = "|.|\n"
+        third_line = "|_|"
+        return first_line + second_line + third_line
