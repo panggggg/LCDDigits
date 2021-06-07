@@ -25,6 +25,12 @@ class LCDDigits:
             third_line = "|_."
             return first_line + second_line + third_line
 
+        if number == 3:
+            first_line = "._.\n"
+            second_line = "._|\n"
+            third_line = "._|"
+            return first_line + second_line + third_line
+
         first_line = "._.\n"
         second_line = "|.|\n"
         third_line = "|_|"
