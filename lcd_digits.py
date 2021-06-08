@@ -11,27 +11,28 @@
 # 910 -> 910
 
 
+from typing import List
+
+
 class LCDDigits:
     def create_LCD(self, number):
-        if number == 1:
-            first_line = "...\n"
-            second_line = "..|\n"
-            third_line = "..|"
+
+        list_first_line = ["._.", "...", "._.", "._."]
+        list_second_line = ["|.|", "..|", "._|", "._|"]
+        list_third_line = ["|_|", "..|", "|_.", "._|"]
+
+        if number >= 10:
+            tens_digits = int(number / 10)
+            digit = int(number % 10)
+            first_line = list_first_line[tens_digits] + list_first_line[digit] + "\n"
+            second_line = list_second_line[tens_digits] + list_second_line[digit] + "\n"
+            third_line = list_third_line[tens_digits] + list_third_line[digit]
             return first_line + second_line + third_line
 
-        if number == 2:
-            first_line = "._.\n"
-            second_line = "._|\n"
-            third_line = "|_."
-            return first_line + second_line + third_line
+        else:
 
-        if number == 3:
-            first_line = "._.\n"
-            second_line = "._|\n"
-            third_line = "._|"
-            return first_line + second_line + third_line
-
-        first_line = "._.\n"
-        second_line = "|.|\n"
-        third_line = "|_|"
-        return first_line + second_line + third_line
+            return "{}\n{}\n{}".format(
+                list_first_line[number],
+                list_second_line[number],
+                list_third_line[number],
+            )
