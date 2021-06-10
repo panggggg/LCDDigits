@@ -21,22 +21,36 @@ class LCDDigits:
         list_second_line = ["|.|", "..|", "._|", "._|"]
         list_third_line = ["|_|", "..|", "|_.", "._|"]
 
-        if number == 100:
-            first_line = "...._.._.\n"
-            second_line = "..||.||.|\n"
-            third_line = "..||_||_|"
-            return first_line + second_line + third_line
+        if number >= 100:
+            if number == (100 + 0):
+                first_line = (
+                    list_first_line[int(number / 100)]
+                    + list_first_line[int(number % 100)]
+                    + list_first_line[int(number % 100)]
+                    + "\n"
+                )
+                second_line = (
+                    list_second_line[int(number / 100)]
+                    + list_second_line[int(number % 100)]
+                    + list_second_line[int(number % 100)]
+                    + "\n"
+                )
+                third_line = (
+                    list_third_line[int(number / 100)]
+                    + list_third_line[int(number % 100)]
+                    + list_third_line[int(number % 100)]
+                )
 
-        if number == 101:
-            first_line = "...._....\n"
-            second_line = "..||.|..|\n"
-            third_line = "..||_|..|"
-            return first_line + second_line + third_line
+            if number == (100 + 1):
+                first_line = "...._....\n"
+                second_line = "..||.|..|\n"
+                third_line = "..||_|..|"
 
-        if number == 102:
-            first_line = "...._.._.\n"
-            second_line = "..||.|._|\n"
-            third_line = "..||_||_."
+            if number == (100 + 2):
+                first_line = "...._.._.\n"
+                second_line = "..||.|._|\n"
+                third_line = "..||_||_."
+
             return first_line + second_line + third_line
 
         if number >= 10:
