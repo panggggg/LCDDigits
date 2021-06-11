@@ -22,36 +22,27 @@ class LCDDigits:
         list_third_line = ["|_|", "..|", "|_.", "._|"]
 
         if number >= 100:
-            if number == (100 + 0):
-                first_line = (
-                    list_first_line[int(number / 100)]
-                    + list_first_line[int(number % 100)]
-                    + list_first_line[int(number % 100)]
-                    + "\n"
-                )
-                second_line = (
-                    list_second_line[int(number / 100)]
-                    + list_second_line[int(number % 100)]
-                    + list_second_line[int(number % 100)]
-                    + "\n"
-                )
-                third_line = (
-                    list_third_line[int(number / 100)]
-                    + list_third_line[int(number % 100)]
-                    + list_third_line[int(number % 100)]
-                )
 
-            if number == (100 + 1):
-                first_line = "...._....\n"
-                second_line = "..||.|..|\n"
-                third_line = "..||_|..|"
+            hunreds = int(number / 100)  # 1 <= หลักร้อย
+            tens_digits = int((number - (hunreds * 100)) / 10)  # 0 <=  หลักสิบ
+            digit = int(number % 10)  # 1 <= หลักหน่วย
+            first_line = (
+                list_first_line[hunreds]
+                + list_first_line[tens_digits]
+                + list_first_line[digit]
+            )
+            second_line = (
+                list_first_line[hunreds]
+                + list_first_line[tens_digits]
+                + list_first_line[digit]
+            )
+            third_line = (
+                list_first_line[hunreds]
+                + list_first_line[tens_digits]
+                + list_first_line[digit]
+            )
 
-            if number == (100 + 2):
-                first_line = "...._.._.\n"
-                second_line = "..||.|._|\n"
-                third_line = "..||_||_."
-
-            return first_line + second_line + third_line
+            return "{}\n{}\n{}".format(first_line, second_line, third_line)
 
         if number >= 10:
             tens_digits = int(number / 10)
