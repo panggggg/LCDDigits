@@ -94,7 +94,7 @@ class TestLCDDigits(unittest.TestCase):
         # assert
         self.assertEquals(expected, actual)
 
-    def test_create_LDCDigits_push_101_should_be_return_LCDDigits_102(self):
+    def test_create_LDCDigits_push_101_should_be_return_LCDDigits_101(self):
         # arrange
         first_line = "...._....\n"
         second_line = "..||.|..|\n"
